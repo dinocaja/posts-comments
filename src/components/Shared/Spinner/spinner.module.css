@@ -1,0 +1,25 @@
+.spinner {
+  will-change: filter;
+  transition: filter 300ms;
+  animation: spinner-spin infinite 3s linear;
+}
+
+.spinnerLg {
+  height: 6em;
+  padding: 1.5em;
+  align-self: center;
+}
+
+.spinnerSm {
+  height: 1em;
+  padding: 0.5em;
+}
+
+@keyframes spinner-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

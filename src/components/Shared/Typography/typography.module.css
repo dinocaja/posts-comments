@@ -1,0 +1,32 @@
+.typography {
+  font-size: 1em;
+  margin: 0px;
+}
+
+.h1 {
+  font-size: 3em;
+  margin: 0.3em;
+}
+
+.h2 {
+  font-size: 2em;
+  margin: 0.1em;
+}
+.body1 {
+  font-size: 1.4em;
+}
+.body2 {
+  font-size: 1em;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}

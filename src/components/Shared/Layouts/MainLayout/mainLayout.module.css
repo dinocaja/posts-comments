@@ -1,0 +1,15 @@
+.mainLayoutWrapper {
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 2em;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .mainLayoutWrapper {
+    padding: 2em 1em;
+  }
+}

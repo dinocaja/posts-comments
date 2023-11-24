@@ -1,0 +1,26 @@
+.commentWrapper {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  border: 1px solid var(--gray);
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+  padding: 0.2em 1em 0.8em;
+}
+
+.commentContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.commentText {
+  border: 0.5px solid var(--black);
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 0.5em;
+}
+
+.commentAuthor {
+  padding: 0.2em;
+}

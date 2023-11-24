@@ -1,0 +1,42 @@
+.postWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--gray);
+  border-radius: var(--border-radius);
+  padding: 0em 2em;
+  min-height: 350px;
+}
+
+.postContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 220px;
+  gap: 0.5em;
+  padding-top: 1.5em;
+}
+
+.postTitle {
+  border-bottom: 1px solid var(--light-gray);
+  padding-bottom: 1em;
+  width: 100%;
+}
+
+.postText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  max-height: 5em;
+  padding: 0.2em 0em;
+}
+
+.postFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0em;
+}

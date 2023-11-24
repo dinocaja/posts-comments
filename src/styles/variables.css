@@ -1,0 +1,21 @@
+:root {
+  /* Colors */
+  --primary-color: #63bffb;
+  --secondary-color: #2ecc71;
+  --text-color: #4a4a4a;
+  --black: #000;
+  --gray: #6d6d6d;
+  --dark-gray: #999;
+  --light-gray: #c0c0c0;
+  --white: #fbfbfb;
+  --background-color: #f1f1f1;
+  --text-highlight: -1px -1px 0 var(--gray), 1px -1px 0 var(--gray),
+    -1px 1px 0 var(--gray), 1px 1px 0 var(--gray);
+
+  /* Typography */
+  --font-family: Arial;
+  --font-size-base: 16px;
+
+  /* Other */
+  --border-radius: 0.4em;
+}

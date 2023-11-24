@@ -1,0 +1,29 @@
+.button {
+  display: inline-block;
+  padding: 1em 2em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0.15em solid var(--gray);
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.primary {
+  color: var(--white);
+  text-shadow: var(--text-highlight);
+  background-color: var(--primary-color);
+}
+
+.secondary {
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+}
+
+.lgSize {
+  padding: 1em 2.4em;
+}
+
+.smSize {
+  padding: 0.4em 1em;
+}

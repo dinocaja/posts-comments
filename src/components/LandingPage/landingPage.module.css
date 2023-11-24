@@ -1,0 +1,36 @@
+.landingPageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10em;
+}
+
+.titleHighlight {
+  color: var(--primary-color);
+  text-shadow: var(--text-highlight);
+}
+
+.subTitle {
+  font-style: italic;
+}
+
+.titleSectionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3em;
+}
+
+.button {
+  height: 5em;
+  width: 20em;
+}
+
+@media (max-width: 600px) {
+  .landingPageWrapper {
+    gap: 4em;
+  }
+  .titleSectionWrapper {
+    gap: 1em;
+  }
+}

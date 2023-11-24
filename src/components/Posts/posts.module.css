@@ -1,0 +1,16 @@
+.postsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.titleHighlight {
+  color: var(--primary-color);
+  text-shadow: var(--text-highlight);
+}
+
+.inputField {
+  width: 20em;
+  align-self: baseline;
+}
