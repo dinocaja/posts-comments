@@ -1,10 +1,10 @@
 import { lazy } from "react";
 
 import { CommentsProvider } from "../../contexts/CommentsContext";
-import PostDetails from "../PostDetails";
 
 const LandingPage = lazy(() => import("../LandingPage"));
 const Posts = lazy(() => import("../Posts"));
+const PostDetails = lazy(() => import("../PostDetails"));
 
 function getPublicRoutes() {
   return [
