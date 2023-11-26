@@ -1,8 +1,9 @@
 export default {
+  verbose: true,
   preset: "ts-jest",
   testEnvironment: "jsdom",
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1",
     "\\.css$": "identity-obj-proxy",
   },
+  setupFilesAfterEnv: ["<rootDir>/jest-setup.js"],
 };

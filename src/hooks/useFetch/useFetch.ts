@@ -28,7 +28,10 @@ function useFetch<T>(url: string, options: RequestInit = {}) {
     }
   }, [error, response, status, setError]);
 
-  return { error, status, data };
+  const isLoading = status === AsyncStatus.pending;
+  const isError = status === AsyncStatus.rejected;
+
+  return { error, status, data, isLoading, isError };
 }
 
 export default useFetch;

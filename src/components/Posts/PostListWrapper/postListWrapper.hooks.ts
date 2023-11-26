@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import { PostsApi } from "../../../constants/endpoints/posts";
 import { UsersApi } from "../../../constants/endpoints/users";
-import { AsyncStatus } from "../../../hooks/useAsync";
 import useFetch from "../../../hooks/useFetch";
 import { IPost, IPostDetails } from "../../../types/posts";
 import { IUser } from "../../../types/users";
@@ -10,34 +9,32 @@ import { debounce } from "../../../utils/debounce";
 
 function useFetchPostsDetails() {
   const [postsDetails, setPostsDetails] = useState<IPostDetails[]>([]);
-  const { status: postsStatus, data: postsData } = useFetch<IPost[]>(
-    PostsApi.getAllPosts()
-  );
-  const { status: usersStatus, data: usersData } = useFetch<IUser[]>(
-    UsersApi.getAllUsers()
-  );
+  const {
+    data: postsData,
+    isLoading: isPostsLoading,
+    isError: isPostsError,
+  } = useFetch<IPost[]>(PostsApi.getAllPosts());
+  const {
+    data: usersData,
+    isLoading: isUsersLoading,
+    isError: isUsersError,
+  } = useFetch<IUser[]>(UsersApi.getAllUsers());
 
   useEffect(() => {
-    if (
-      postsStatus === AsyncStatus.resolved &&
-      usersStatus === AsyncStatus.resolved
-    ) {
+    if (!!postsData && !!usersData) {
       const combinedPostsWithUsers = postsData?.map((post) => ({
         ...post,
         user: usersData?.find((user) => user.id === post.userId),
       }));
       combinedPostsWithUsers && setPostsDetails(combinedPostsWithUsers);
     }
-  }, [postsStatus, usersStatus, postsData, usersData]);
+  }, [postsData, usersData]);
 
-  const isError =
-    postsStatus === AsyncStatus.rejected ||
-    usersStatus === AsyncStatus.rejected;
-
-  const isLoading =
-    postsStatus === AsyncStatus.pending || usersStatus === AsyncStatus.pending;
-
-  return { isLoading, isError, postsDetails };
+  return {
+    postsDetails,
+    isError: isPostsError || isUsersError,
+    isLoading: isPostsLoading || isUsersLoading,
+  };
 }
 
 function useFilterPostsDetails(postsDetails: IPostDetails[]) {

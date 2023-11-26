@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 
-import { useCommentsContext } from "../../../contexts/CommentsContext";
 import { usePostDetailsContext } from "../../../contexts/PostDetailsContext";
+import { useCommentsContext } from "../../../contexts/CommentsContext";
 import withMessageLog from "../../../hoc/withMessageLog";
 import Typography, { TypographyVariant } from "../../Shared/Typography";
 

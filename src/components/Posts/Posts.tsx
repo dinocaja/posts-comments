@@ -1,5 +1,7 @@
 import withMessageLog from "../../hoc/withMessageLog";
+import EmptyState from "../Shared/EmptyState";
 import GeneralError from "../Shared/Errors/GeneralError";
+import NotFoundError from "../Shared/Errors/NotFoundError";
 import InputField from "../Shared/Input";
 import Spinner from "../Shared/Spinner";
 import Typography, {
@@ -33,9 +35,11 @@ function Posts() {
                 placeholder='Filter posts by user name'
                 onControlledChange={changeFilterValue}
               />
-              {posts.map((post) => (
-                <Post key={post.id} post={post} />
-              ))}
+              {!!posts.length ? (
+                posts.map((post) => <Post key={post.id} post={post} />)
+              ) : (
+                <EmptyState />
+              )}
             </>
           );
         }}

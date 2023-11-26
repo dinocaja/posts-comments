@@ -3,18 +3,24 @@ import { useEffect } from "react";
 import { PostsApi } from "../../../constants/endpoints/posts";
 import { UsersApi } from "../../../constants/endpoints/users";
 import { usePostDetailsContext } from "../../../contexts/PostDetailsContext";
-import { AsyncStatus } from "../../../hooks/useAsync";
 import useFetch from "../../../hooks/useFetch";
 import { IPost } from "../../../types/posts";
 import { IUser } from "../../../types/users";
 
 function useFetchPostDetails(postId: number) {
   const { setPostDetails } = usePostDetailsContext();
-  const { status: postStatus, data: postData } = useFetch<IPost>(
-    PostsApi.getPostById(postId)
-  );
+  const {
+    data: postData,
+    isLoading: isPostsLoading,
+    isError: isPostsError,
+  } = useFetch<IPost>(PostsApi.getPostById(postId));
+
   const getUserUrl = postData?.id ? UsersApi.getUserById(postData.id) : "";
-  const { status: userStatus, data: userData } = useFetch<IUser>(getUserUrl);
+  const {
+    data: userData,
+    isLoading: isUsersLoading,
+    isError: isUsersError,
+  } = useFetch<IUser>(getUserUrl);
 
   useEffect(() => {
     if (postData && userData) {
@@ -27,13 +33,10 @@ function useFetchPostDetails(postId: number) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postData, userData]);
 
-  const isError =
-    postStatus === AsyncStatus.rejected || userStatus === AsyncStatus.rejected;
-
-  const isLoading =
-    postStatus === AsyncStatus.pending || userStatus === AsyncStatus.pending;
-
-  return { isError, isLoading };
+  return {
+    isError: isPostsError || isUsersError,
+    isLoading: isPostsLoading || isUsersLoading,
+  };
 }
 
 export { useFetchPostDetails };

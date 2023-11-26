@@ -42,7 +42,7 @@ function InputField({
       value={controlledValue ?? value}
       onChange={handleChange}
       className={classNames(className, styles.input)}
-      readOnly={readOnly}
+      readOnly={readOnly || (isControlled && !hasControlledChange)}
       {...inputProps}
     />
   );
