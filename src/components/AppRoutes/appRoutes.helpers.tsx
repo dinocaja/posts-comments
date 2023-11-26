@@ -1,11 +1,11 @@
 import { lazy } from "react";
 
 import CommentsProvider from "../../contexts/CommentsContext/CommentsContext";
-import NotFoundError from "../Shared/Errors/NotFoundError";
 
 const LandingPage = lazy(() => import("../LandingPage"));
 const Posts = lazy(() => import("../Posts"));
 const PostDetails = lazy(() => import("../PostDetails"));
+const NotFoundError = lazy(() => import("../Shared/Errors/NotFoundError"));
 
 function getPublicRoutes() {
   return [
