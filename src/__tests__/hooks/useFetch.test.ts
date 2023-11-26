@@ -1,4 +1,5 @@
-import { renderHook } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
+import { waitFor } from "@testing-library/react";
 import { statusCodes } from "../../constants/statusCodes";
 import { AsyncStatus } from "../../hooks/useAsync";
 import useFetch from "../../hooks/useFetch";
@@ -24,11 +25,10 @@ describe("useFetch Hook Tests", () => {
   test("fetches data successfully", async () => {
     global.fetch = mockFetchSuccess;
 
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useFetch(`${mockGateWay}/users`)
-    );
+    const { result } = renderHook(() => useFetch(`${mockGateWay}/users`));
 
-    await waitForNextUpdate();
+    await waitFor(() => result.current.status === AsyncStatus.resolved);
+    await waitFor(() => !!result.current.data);
 
     expect(result.current.error).toBeNull();
     expect(result.current.status).toBe(AsyncStatus.resolved);
@@ -40,11 +40,10 @@ describe("useFetch Hook Tests", () => {
   test("handles fetch error", async () => {
     global.fetch = mockFetchError;
 
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useFetch(`${mockGateWay}/users`)
-    );
+    const { result } = renderHook(() => useFetch(`${mockGateWay}/users`));
 
-    await waitForNextUpdate();
+    await waitFor(() => result.current.status === AsyncStatus.resolved);
+    await waitFor(() => !!result.current.data);
 
     expect(result.current.status).toBe(AsyncStatus.rejected);
     expect(result.current.data).toBeUndefined();
@@ -67,12 +66,12 @@ describe("useFetch Hook Tests", () => {
   test("re-fetches when URL changes", async () => {
     global.fetch = mockFetchSuccess;
 
-    const { result, rerender, waitForNextUpdate } = renderHook(
-      ({ url }) => useFetch(url),
-      { initialProps: { url: `${mockGateWay}/users` } }
-    );
+    const { result, rerender } = renderHook(({ url }) => useFetch(url), {
+      initialProps: { url: `${mockGateWay}/users` },
+    });
 
-    await waitForNextUpdate();
+    await waitFor(() => result.current.status === AsyncStatus.resolved);
+    await waitFor(() => !!result.current.data);
 
     expect(result.current.error).toBeNull();
     expect(result.current.status).toBe(AsyncStatus.resolved);
@@ -80,7 +79,7 @@ describe("useFetch Hook Tests", () => {
 
     rerender({ url: `${mockGateWay}/posts` });
 
-    await waitForNextUpdate();
+    await waitFor(() => result.current.status === AsyncStatus.resolved);
 
     expect(result.current.error).toBeNull();
     expect(result.current.status).toBe(AsyncStatus.resolved);

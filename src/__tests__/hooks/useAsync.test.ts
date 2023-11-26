@@ -1,4 +1,5 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
+import { waitFor } from "@testing-library/react";
 import useAsync, { AsyncStatus } from "../../hooks/useAsync";
 
 // Mock async function for testing
@@ -22,13 +23,9 @@ describe("useAsync Hook Tests", () => {
   });
 
   test("run function with successful promise", async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useAsync());
+    const { result } = renderHook(() => useAsync());
 
-    act(() => {
-      result.current.run(mockAsyncFunction());
-    });
-
-    await waitForNextUpdate();
+    await waitFor(() => result.current.run(mockAsyncFunction()));
 
     expect(result.current.status).toBe(AsyncStatus.resolved);
     expect(result.current.response).toEqual({ data: "Mock Data" });
@@ -36,13 +33,9 @@ describe("useAsync Hook Tests", () => {
   });
 
   test("run function with promise that throws an error", async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useAsync());
+    const { result } = renderHook(() => useAsync());
 
-    act(() => {
-      result.current.run(mockAsyncFunctionWithError());
-    });
-
-    await waitForNextUpdate();
+    await waitFor(() => result.current.run(mockAsyncFunctionWithError()));
 
     expect(result.current.status).toBe(AsyncStatus.rejected);
     expect(result.current.response).toBe(null);
