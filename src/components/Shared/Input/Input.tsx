@@ -1,11 +1,11 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
-import { messagePropName } from "../../../constants/appDefaults";
-import removeProps from "../../../helpers/removeProps";
+import { messagePropName } from "../../../constants/appDefaults/messageDefaults";
+import removeProps from "../../../helpers/componentHelpers.ts/removeProps";
 import withMessageLog from "../../../hoc/withMessageLog";
-import { classNames } from "../../../utils/classNames";
+import { classNames } from "../../../utils/styleUtils/classNames";
 
-import { IInputFieldProps } from "./input.types";
+import { InputFieldProps } from "./input.types";
 
 import styles from "./input.module.css";
 
@@ -16,7 +16,7 @@ function InputField({
   type = "text",
   className = "",
   ...props
-}: IInputFieldProps) {
+}: InputFieldProps) {
   const [value, setValue] = useState("");
   const inputProps = removeProps(props, [messagePropName]);
   const isControlled = !!controlledValue;
@@ -48,4 +48,4 @@ function InputField({
   );
 }
 
-export default withMessageLog<IInputFieldProps>(InputField);
+export default withMessageLog<InputFieldProps>(InputField);

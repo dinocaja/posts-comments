@@ -1,10 +1,10 @@
 import { ButtonHTMLAttributes } from "react";
 
-import { IComponent } from "../../../types/components";
+import { ComponentProps } from "../../../types/components";
 
-interface IButtonProps
+interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    IComponent {
+    ComponentProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
 }
@@ -20,4 +20,4 @@ enum ButtonVariant {
 }
 
 export { ButtonSize, ButtonVariant };
-export type { IButtonProps };
+export type { ButtonProps };

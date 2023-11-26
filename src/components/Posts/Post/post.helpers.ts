@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
 
-import { FetchedComments, IComment } from "../../../types/comments";
-import { IPostDetails } from "../../../types/posts";
+import { FetchedComments, Comment } from "../../../types/comments";
+import { PostDetails } from "../../../types/posts";
 
 function handlePostClick(
-  post: IPostDetails,
-  setPostDetails: Dispatch<SetStateAction<Partial<IPostDetails>>>,
-  setComments: Dispatch<SetStateAction<IComment[] | null>>,
+  post: PostDetails,
+  setPostDetails: Dispatch<SetStateAction<Partial<PostDetails>>>,
+  setComments: Dispatch<SetStateAction<Comment[] | null>>,
   fetchedComments: FetchedComments[]
 ) {
   setPostDetails(post);

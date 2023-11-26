@@ -1,15 +1,15 @@
-import { useCommentsContext } from "../../../../contexts/CommentsContext";
+import { useCommentsContext } from "../../CommentsContext";
 import withMessageLog from "../../../../hoc/withMessageLog";
 import useToggle from "../../../../hooks/useToggle";
 import Button, { ButtonSize } from "../../../Shared/Button";
 import OutsideAlerter from "../../../Shared/OutsideAlerter";
 import Typography from "../../../Shared/Typography";
 
-import { ICommentButtonProps } from "./commentButton.types";
+import { CommentButtonProps } from "./commentButton.types";
 
 import styles from "./commentButton.module.css";
 
-function CommentButton({ children, postId }: ICommentButtonProps) {
+function CommentButton({ children, postId }: CommentButtonProps) {
   const { opened, toggle, handleClose } = useToggle();
   const { fetchedComments } = useCommentsContext();
   const commentData = fetchedComments.find(
@@ -28,4 +28,4 @@ function CommentButton({ children, postId }: ICommentButtonProps) {
   );
 }
 
-export default withMessageLog<ICommentButtonProps>(CommentButton);
+export default withMessageLog<CommentButtonProps>(CommentButton);

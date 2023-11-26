@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { waitFor } from "@testing-library/react";
-import { statusCodes } from "../../constants/statusCodes";
+import { statusCodes } from "../../constants/appDefaults/statusCodes";
 import { AsyncStatus } from "../../hooks/useAsync";
 import useFetch from "../../hooks/useFetch";
 

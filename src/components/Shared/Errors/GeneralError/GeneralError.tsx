@@ -1,12 +1,12 @@
 import withMessageLog from "../../../../hoc/withMessageLog";
-import { classNames } from "../../../../utils/classNames";
+import { classNames } from "../../../../utils/styleUtils/classNames";
 import Typography, { TypographyAlignment } from "../../Typography";
 
-import { IGeneralErrorProps } from "./generalError.types";
+import { GeneralErrorProps } from "./generalError.types";
 
 import styles from "./generalError.module.css";
 
-function GeneralError({ className = "" }: IGeneralErrorProps) {
+function GeneralError({ className = "" }: GeneralErrorProps) {
   return (
     <div
       className={classNames(styles.generalErrorWrapper, className)}
@@ -19,4 +19,4 @@ function GeneralError({ className = "" }: IGeneralErrorProps) {
   );
 }
 
-export default withMessageLog<IGeneralErrorProps>(GeneralError);
+export default withMessageLog<GeneralErrorProps>(GeneralError);

@@ -2,18 +2,18 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 
 import { usePostDetailsContext } from "../../../contexts/PostDetailsContext";
-import { useCommentsContext } from "../../../contexts/CommentsContext";
+import { useCommentsContext } from "../CommentsContext";
 import withMessageLog from "../../../hoc/withMessageLog";
 import Typography, { TypographyVariant } from "../../Shared/Typography";
 
 import CommentButton from "./CommentButton";
 import Comments from "./Comments";
 import { handlePostClick } from "./post.helpers";
-import { IPostProps } from "./post.types";
+import { PostProps } from "./post.types";
 
 import styles from "./post.module.css";
 
-function Post({ post }: IPostProps) {
+function Post({ post }: PostProps) {
   const { title, body, id, user } = post;
   const { setPostDetails, setComments } = usePostDetailsContext();
   const { fetchedComments } = useCommentsContext();
@@ -50,4 +50,4 @@ function Post({ post }: IPostProps) {
   );
 }
 
-export default memo(withMessageLog<IPostProps>(Post));
+export default memo(withMessageLog<PostProps>(Post));

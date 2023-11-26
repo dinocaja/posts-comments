@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 
-import { IComment } from "../../../../types/comments";
-import { IComponent } from "../../../../types/components";
+import { Comment } from "../../../../types/comments";
+import { ComponentProps } from "../../../../types/components";
 
-interface ICommentButtonProps extends IComponent {
-  children: (isOpen: boolean, commentData?: IComment[]) => ReactNode;
+interface CommentButtonProps extends ComponentProps {
+  children: (isOpen: boolean, commentData?: Comment[]) => ReactNode;
   postId: number;
 }
 
-export type { ICommentButtonProps };
+export type { CommentButtonProps };

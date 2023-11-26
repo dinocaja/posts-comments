@@ -1,17 +1,17 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
-import { IComment } from "../../types/comments";
-import { IComponent } from "../../types/components";
-import { IPostDetails } from "../../types/posts";
+import { Comment } from "../../types/comments";
+import { ComponentProps } from "../../types/components";
+import { PostDetails } from "../../types/posts";
 
-interface IPostDetailsContext {
-  postDetails: Partial<IPostDetails>;
-  setPostDetails: Dispatch<SetStateAction<Partial<IPostDetails>>>;
-  comments: IComment[] | null;
-  setComments: Dispatch<SetStateAction<IComment[] | null>>;
+interface PostDetailsContextProps {
+  postDetails: Partial<PostDetails>;
+  setPostDetails: Dispatch<SetStateAction<Partial<PostDetails>>>;
+  comments: Comment[] | null;
+  setComments: Dispatch<SetStateAction<Comment[] | null>>;
 }
 
-interface IPostDetailsProvider extends IComponent {
+interface PostDetailsProviderProps extends ComponentProps {
   children: ReactNode;
 }
 
-export type { IPostDetailsContext, IPostDetailsProvider };
+export type { PostDetailsContextProps, PostDetailsProviderProps };

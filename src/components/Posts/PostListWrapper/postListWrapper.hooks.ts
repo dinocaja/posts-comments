@@ -3,22 +3,22 @@ import { useEffect, useState } from "react";
 import { PostsApi } from "../../../constants/endpoints/posts";
 import { UsersApi } from "../../../constants/endpoints/users";
 import useFetch from "../../../hooks/useFetch";
-import { IPost, IPostDetails } from "../../../types/posts";
-import { IUser } from "../../../types/users";
-import { debounce } from "../../../utils/debounce";
+import { Post, PostDetails } from "../../../types/posts";
+import { User } from "../../../types/users";
+import { debounce } from "../../../utils/timeoutUtils/debounce";
 
 function useFetchPostsDetails() {
-  const [postsDetails, setPostsDetails] = useState<IPostDetails[]>([]);
+  const [postsDetails, setPostsDetails] = useState<PostDetails[]>([]);
   const {
     data: postsData,
     isLoading: isPostsLoading,
     isError: isPostsError,
-  } = useFetch<IPost[]>(PostsApi.getAllPosts());
+  } = useFetch<Post[]>(PostsApi.getAllPosts());
   const {
     data: usersData,
     isLoading: isUsersLoading,
     isError: isUsersError,
-  } = useFetch<IUser[]>(UsersApi.getAllUsers());
+  } = useFetch<User[]>(UsersApi.getAllUsers());
 
   useEffect(() => {
     if (!!postsData && !!usersData) {
@@ -37,9 +37,9 @@ function useFetchPostsDetails() {
   };
 }
 
-function useFilterPostsDetails(postsDetails: IPostDetails[]) {
+function useFilterPostsDetails(postsDetails: PostDetails[]) {
   const [filteredPostsDetails, setFilteredPostsDetails] = useState<
-    IPostDetails[]
+    PostDetails[]
   >([]);
   const [filterValue, setFilterValue] = useState("");
   const changeFilterValue = debounce(setFilterValue);

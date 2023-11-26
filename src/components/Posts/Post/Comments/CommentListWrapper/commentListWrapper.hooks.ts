@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 
 import { PostsApi } from "../../../../../constants/endpoints/posts";
-import { useCommentsContext } from "../../../../../contexts/CommentsContext";
+import { useCommentsContext } from "../../../CommentsContext";
 import useFetch from "../../../../../hooks/useFetch";
-import { IComment } from "../../../../../types/comments";
+import { Comment } from "../../../../../types/comments";
 
 function useFetchComments(postId: number) {
   const { fetchedComments, setFetchedComments } = useCommentsContext();
 
-  const { data, isLoading, isError } = useFetch<IComment[]>(
+  const { data, isLoading, isError } = useFetch<Comment[]>(
     PostsApi.getCommentsByPostId(postId)
   );
 

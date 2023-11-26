@@ -1,12 +1,12 @@
 import { InputHTMLAttributes } from "react";
 
-import { IComponent } from "../../../types/components";
+import { ComponentProps } from "../../../types/components";
 
-interface IInputFieldProps
+interface InputFieldProps
   extends InputHTMLAttributes<HTMLInputElement>,
-    IComponent {
+    ComponentProps {
   onControlledChange?: (value: string) => void;
   label?: string;
 }
 
-export type { IInputFieldProps };
+export type { InputFieldProps };

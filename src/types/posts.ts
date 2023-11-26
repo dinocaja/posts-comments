@@ -1,14 +1,14 @@
-import { IUser } from "./users";
+import { User } from "./users";
 
-interface IPost {
+interface Post {
   userId: number;
   id: number;
   title: string;
   body: string;
 }
 
-interface IPostDetails extends IPost {
-  user?: IUser;
+interface PostDetails extends Post {
+  user?: User;
 }
 
-export type { IPost, IPostDetails };
+export type { Post, PostDetails };

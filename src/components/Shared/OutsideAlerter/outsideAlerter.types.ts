@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
-import { IComponent } from "../../../types/components";
+import { ComponentProps } from "../../../types/components";
 
-interface IOutsideAlerterProps extends IComponent {
+interface OutsideAlerterProps extends ComponentProps {
   children: ReactNode;
   onClick: () => void;
 }
 
-export type { IOutsideAlerterProps };
+export type { OutsideAlerterProps };

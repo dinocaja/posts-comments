@@ -1,6 +1,6 @@
-import { IComment } from "../../../../../types/comments";
-import { IComponent } from "../../../../../types/components";
+import { Comment } from "../../../../../types/comments";
+import { ComponentProps } from "../../../../../types/components";
 
-interface ICommentProps extends IComponent, IComment {}
+interface CommentProps extends ComponentProps, Comment {}
 
-export type { ICommentProps };
+export type { CommentProps };

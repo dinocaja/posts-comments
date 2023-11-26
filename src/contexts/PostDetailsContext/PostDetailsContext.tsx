@@ -1,22 +1,22 @@
 import { createContext, useState } from "react";
 import withMessageLog from "../../hoc/withMessageLog";
 
-import { IComment } from "../../types/comments";
+import { Comment } from "../../types/comments";
 import {
-  IPostDetailsContext,
-  IPostDetailsProvider,
+  PostDetailsContextProps,
+  PostDetailsProviderProps,
 } from "./postDetailsContext.types";
 
-const PostDetailsContext = createContext<IPostDetailsContext>({
+const PostDetailsContext = createContext<PostDetailsContextProps>({
   postDetails: {},
   setPostDetails: () => {},
   comments: null,
   setComments: () => {},
 });
 
-function PostDetailsProvider({ children }: IPostDetailsProvider) {
+function PostDetailsProvider({ children }: PostDetailsProviderProps) {
   const [postDetails, setPostDetails] = useState({});
-  const [comments, setComments] = useState<IComment[] | null>(null);
+  const [comments, setComments] = useState<Comment[] | null>(null);
 
   return (
     <PostDetailsContext.Provider
@@ -28,4 +28,4 @@ function PostDetailsProvider({ children }: IPostDetailsProvider) {
 }
 
 export { PostDetailsContext };
-export default withMessageLog<IPostDetailsProvider>(PostDetailsProvider);
+export default withMessageLog<PostDetailsProviderProps>(PostDetailsProvider);

@@ -1,11 +1,11 @@
 import withMessageLog from "../../../../../hoc/withMessageLog";
 import Typography, { TypographyVariant } from "../../../../Shared/Typography";
 
-import { ICommentProps } from "./comment.types";
+import { CommentProps } from "./comment.types";
 
 import styles from "./comment.module.css";
 
-function Comment({ email, body }: ICommentProps) {
+function Comment({ email, body }: CommentProps) {
   return (
     <div className={styles.commentWrapper}>
       <Typography
@@ -24,4 +24,4 @@ function Comment({ email, body }: ICommentProps) {
   );
 }
 
-export default withMessageLog<ICommentProps>(Comment);
+export default withMessageLog<CommentProps>(Comment);

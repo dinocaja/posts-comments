@@ -1,7 +1,5 @@
 import { lazy } from "react";
 
-import CommentsProvider from "../../contexts/CommentsContext/CommentsContext";
-
 const LandingPage = lazy(() => import("../LandingPage"));
 const Posts = lazy(() => import("../Posts"));
 const PostDetails = lazy(() => import("../PostDetails"));
@@ -15,11 +13,7 @@ function getPublicRoutes() {
     },
     {
       path: "/posts",
-      element: (
-        <CommentsProvider>
-          <Posts />
-        </CommentsProvider>
-      ),
+      element: <Posts />,
     },
     {
       path: "/post/:id",

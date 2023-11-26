@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { statusCodes } from "../../constants/statusCodes";
+import { statusCodes } from "../../constants/appDefaults/statusCodes";
 import useAsync, { AsyncStatus } from "../useAsync";
 
 import { DEFAULT_OPTIONS } from "./useFetch.constants";

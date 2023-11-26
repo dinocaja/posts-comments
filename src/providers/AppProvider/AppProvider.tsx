@@ -1,19 +1,23 @@
-import { ReactNode, Suspense } from "react";
+import { lazy, ReactNode, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import ApplicationError from "../../components/Shared/Errors/ApplicationError";
 import MainLayout from "../../components/Shared/Layouts/MainLayout";
 import Spinner from "../../components/Shared/Spinner/Spinner";
-import PostDetailsProvider from "../../contexts/PostDetailsContext";
-import withMessageLog from "../../hoc/withMessageLog";
-import { IComponent } from "../../types/components";
 
-interface IAppProviderProps extends IComponent {
+import withMessageLog from "../../hoc/withMessageLog";
+import { ComponentProps } from "../../types/components";
+
+const PostDetailsProvider = lazy(
+  () => import("../../contexts/PostDetailsContext")
+);
+
+interface AppProviderProps extends ComponentProps {
   children: ReactNode;
 }
 
-function AppProvider({ children }: IAppProviderProps) {
+function AppProvider({ children }: AppProviderProps) {
   return (
     <Router>
       <MainLayout>
@@ -27,4 +31,4 @@ function AppProvider({ children }: IAppProviderProps) {
   );
 }
 
-export default withMessageLog<IAppProviderProps>(AppProvider);
+export default withMessageLog<AppProviderProps>(AppProvider);

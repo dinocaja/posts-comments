@@ -1,14 +1,14 @@
-import { IComponent } from "../../../types/components";
+import { ComponentProps } from "../../../types/components";
 
 enum SpinnerSize {
   sm = "small",
   lg = "large",
 }
 
-interface ISpinnerProps extends IComponent {
+interface SpinnerProps extends ComponentProps {
   size?: SpinnerSize;
   className?: string;
 }
 
 export { SpinnerSize };
-export type { ISpinnerProps };
+export type { SpinnerProps };

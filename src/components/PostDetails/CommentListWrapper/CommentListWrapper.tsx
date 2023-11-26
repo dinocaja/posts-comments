@@ -4,11 +4,11 @@ import { PostsApi } from "../../../constants/endpoints/posts";
 import { usePostDetailsContext } from "../../../contexts/PostDetailsContext";
 import withMessageLog from "../../../hoc/withMessageLog";
 import useFetch from "../../../hooks/useFetch";
-import { IComment } from "../../../types/comments";
+import { Comment } from "../../../types/comments";
 
-import { ICommentListWrapperProps } from "./commentListWrapper.types";
+import { CommentListWrapperProps } from "./commentListWrapper.types";
 
-function CommentListWrapper({ children }: ICommentListWrapperProps) {
+function CommentListWrapper({ children }: CommentListWrapperProps) {
   const { postDetails, setComments } = usePostDetailsContext();
 
   const getCommentsUrl = postDetails?.id
@@ -18,7 +18,7 @@ function CommentListWrapper({ children }: ICommentListWrapperProps) {
     data: commentsData,
     isError,
     isLoading,
-  } = useFetch<IComment[]>(getCommentsUrl);
+  } = useFetch<Comment[]>(getCommentsUrl);
 
   useEffect(() => {
     if (commentsData) setComments(commentsData);
@@ -28,4 +28,4 @@ function CommentListWrapper({ children }: ICommentListWrapperProps) {
   return <>{children(isError, isLoading)}</>;
 }
 
-export default withMessageLog<ICommentListWrapperProps>(CommentListWrapper);
+export default withMessageLog<CommentListWrapperProps>(CommentListWrapper);

@@ -1,7 +1,7 @@
 import { FallbackProps } from "react-error-boundary";
 
-import { IComponent } from "../../../../types/components";
+import { ComponentProps } from "../../../../types/components";
 
-interface IApplicationErrorProps extends FallbackProps, IComponent {}
+interface ApplicationErrorProps extends FallbackProps, ComponentProps {}
 
-export type { IApplicationErrorProps };
+export type { ApplicationErrorProps };

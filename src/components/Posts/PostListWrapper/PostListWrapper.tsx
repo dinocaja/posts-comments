@@ -4,9 +4,9 @@ import {
   useFetchPostsDetails,
   useFilterPostsDetails,
 } from "./postListWrapper.hooks";
-import { IPostListWrapperProps } from "./postListWrapper.types";
+import { PostListWrapperProps } from "./postListWrapper.types";
 
-function PostListWrapper({ children }: IPostListWrapperProps) {
+function PostListWrapper({ children }: PostListWrapperProps) {
   const { isLoading, isError, postsDetails } = useFetchPostsDetails();
   const { changeFilterValue, filteredPostsDetails } =
     useFilterPostsDetails(postsDetails);
@@ -16,4 +16,4 @@ function PostListWrapper({ children }: IPostListWrapperProps) {
   );
 }
 
-export default withMessageLog<IPostListWrapperProps>(PostListWrapper);
+export default withMessageLog<PostListWrapperProps>(PostListWrapper);

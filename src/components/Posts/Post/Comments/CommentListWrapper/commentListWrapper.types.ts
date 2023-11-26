@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
 
-import { IComment } from "../../../../../types/comments";
-import { IComponent } from "../../../../../types/components";
+import { Comment } from "../../../../../types/comments";
+import { ComponentProps } from "../../../../../types/components";
 
-interface ICommentListWrapperProps extends IComponent {
+interface CommentListWrapperProps extends ComponentProps {
   children: (
     isError: boolean,
     isLoading: boolean,
-    comments?: IComment[]
+    comments?: Comment[]
   ) => ReactNode;
   postId: number;
 }
 
-export type { ICommentListWrapperProps };
+export type { CommentListWrapperProps };

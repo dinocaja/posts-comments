@@ -1,8 +1,8 @@
-import { IComponent } from "../../../types/components";
-import { IPostDetails } from "../../../types/posts";
+import { ComponentProps } from "../../../types/components";
+import { PostDetails } from "../../../types/posts";
 
-interface IPostProps extends IComponent {
-  post: IPostDetails;
+interface PostProps extends ComponentProps {
+  post: PostDetails;
 }
 
-export type { IPostProps };
+export type { PostProps };

@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import withMessageLog from "../../hoc/withMessageLog";
-import { helloMessage as defaultHelloMessage } from "../../constants/appDefaults";
+import { helloMessage as defaultHelloMessage } from "../../constants/appDefaults/messageDefaults";
 
 // Create a spy on console.log before running tests
 const consoleLogSpy = jest.spyOn(console, "log");

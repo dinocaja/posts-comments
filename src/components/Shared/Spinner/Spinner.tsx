@@ -1,13 +1,13 @@
 import reactLogo from "../../../assets/react.svg";
 import withMessageLog from "../../../hoc/withMessageLog";
-import { classNames } from "../../../utils/classNames";
+import { classNames } from "../../../utils/styleUtils/classNames";
 
 import { sizeClassNames } from "./spinner.constants";
-import { ISpinnerProps, SpinnerSize } from "./spinner.types";
+import { SpinnerProps, SpinnerSize } from "./spinner.types";
 
 import styles from "./spinner.module.css";
 
-function Spinner({ size = SpinnerSize.lg, className = "" }: ISpinnerProps) {
+function Spinner({ size = SpinnerSize.lg, className = "" }: SpinnerProps) {
   const sizeClassName = sizeClassNames[size];
   return (
     <div className={className}>
@@ -20,4 +20,4 @@ function Spinner({ size = SpinnerSize.lg, className = "" }: ISpinnerProps) {
   );
 }
 
-export default withMessageLog<ISpinnerProps>(Spinner);
+export default withMessageLog<SpinnerProps>(Spinner);

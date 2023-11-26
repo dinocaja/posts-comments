@@ -1,11 +1,11 @@
 import withMessageLog from "../../../../hoc/withMessageLog";
 
-import { IMainLayoutProps } from "./mainLayout.types";
+import { MainLayoutProps } from "./mainLayout.types";
 
 import styles from "./mainLayout.module.css";
 
-function MainLayout({ children }: IMainLayoutProps) {
+function MainLayout({ children }: MainLayoutProps) {
   return <div className={styles.mainLayoutWrapper}>{children}</div>;
 }
 
-export default withMessageLog<IMainLayoutProps>(MainLayout);
+export default withMessageLog<MainLayoutProps>(MainLayout);

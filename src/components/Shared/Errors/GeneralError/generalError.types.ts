@@ -1,7 +1,7 @@
-import { IComponent } from "../../../../types/components";
+import { ComponentProps } from "../../../../types/components";
 
-interface IGeneralErrorProps extends IComponent {
+interface GeneralErrorProps extends ComponentProps {
   className?: string;
 }
 
-export type { IGeneralErrorProps };
+export type { GeneralErrorProps };

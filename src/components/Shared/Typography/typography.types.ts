@@ -1,6 +1,6 @@
 import { HTMLAttributes } from "react";
 
-import { IComponent } from "../../../types/components";
+import { ComponentProps } from "../../../types/components";
 
 enum TypographyVariant {
   h1 = "h1",
@@ -15,12 +15,14 @@ enum TypographyAlignment {
   right = "right",
 }
 
-interface ITypographyProps
-  extends HTMLAttributes<HTMLParagraphElement>,
-    IComponent {
+type TypographyExtendedProps = HTMLAttributes<
+  HTMLParagraphElement | HTMLHeadingElement
+>;
+
+interface TypographyProps extends TypographyExtendedProps, ComponentProps {
   variant?: TypographyVariant;
   alignment?: TypographyAlignment;
 }
 
 export { TypographyAlignment, TypographyVariant };
-export type { ITypographyProps };
+export type { TypographyProps };

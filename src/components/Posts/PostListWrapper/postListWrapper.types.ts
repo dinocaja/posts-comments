@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
 
-import { IComponent } from "../../../types/components";
-import { IPostDetails } from "../../../types/posts";
+import { ComponentProps } from "../../../types/components";
+import { PostDetails } from "../../../types/posts";
 
-interface IPostListWrapperProps extends IComponent {
+interface PostListWrapperProps extends ComponentProps {
   children: (
     isError: boolean,
     isLoading: boolean,
-    postUsers: IPostDetails[],
+    postUsers: PostDetails[],
     changeFilterValue: (value: string) => void
   ) => ReactNode;
 }
 
-export type { IPostListWrapperProps };
+export type { PostListWrapperProps };

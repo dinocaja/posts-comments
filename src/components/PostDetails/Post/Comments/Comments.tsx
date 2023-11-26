@@ -1,6 +1,6 @@
 import { usePostDetailsContext } from "../../../../contexts/PostDetailsContext";
 import withMessageLog from "../../../../hoc/withMessageLog";
-import Typography, { TypographyVariant } from "../../../Shared/Typography";
+import Typography from "../../../Shared/Typography";
 
 import Comment from "./Comment";
 

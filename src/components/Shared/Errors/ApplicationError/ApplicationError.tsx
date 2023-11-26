@@ -5,7 +5,7 @@ import Typography, {
   TypographyVariant,
 } from "../../Typography";
 
-import { IApplicationErrorProps } from "./applicationError.types";
+import { ApplicationErrorProps } from "./applicationError.types";
 
 import styles from "./applicationError.module.css";
 
@@ -25,4 +25,4 @@ function ApplicationError() {
   );
 }
 
-export default withMessageLog<IApplicationErrorProps>(ApplicationError);
+export default withMessageLog<ApplicationErrorProps>(ApplicationError);

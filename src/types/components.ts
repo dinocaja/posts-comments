@@ -1,5 +1,5 @@
-interface IComponent {
+interface ComponentProps {
   helloMessage?: string;
 }
 
-export type { IComponent };
+export type { ComponentProps };

@@ -1,5 +1,5 @@
 import withMessageLog from "../../../hoc/withMessageLog";
-import { classNames } from "../../../utils/classNames";
+import { classNames } from "../../../utils/styleUtils/classNames";
 import Typography, { TypographyAlignment } from "../Typography";
 
 import styles from "./emptyState.module.css";

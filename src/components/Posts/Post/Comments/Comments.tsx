@@ -1,15 +1,15 @@
 import withMessageLog from "../../../../hoc/withMessageLog";
-import { IComment } from "../../../../types/comments";
+import { Comment as IComment } from "../../../../types/comments";
 import GeneralError from "../../../Shared/Errors/GeneralError";
 import Spinner from "../../../Shared/Spinner";
 
 import Comment from "./Comment";
 import CommentListWrapper from "./CommentListWrapper";
-import { ICommentsProps } from "./comments.types";
+import { CommentsProps } from "./comments.types";
 
 import styles from "./comments.module.css";
 
-function Comments({ postId, fetchedComments }: ICommentsProps) {
+function Comments({ postId, fetchedComments }: CommentsProps) {
   const hasFetchedComments = fetchedComments?.length;
 
   function mapComments(comments?: IComment[]) {
@@ -41,4 +41,4 @@ function Comments({ postId, fetchedComments }: ICommentsProps) {
   );
 }
 
-export default withMessageLog<ICommentsProps>(Comments);
+export default withMessageLog<CommentsProps>(Comments);

@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
-import { IComponent } from "../../../types/components";
+import { ComponentProps } from "../../../types/components";
 
-interface IPostWrapperProps extends IComponent {
+interface PostWrapperProps extends ComponentProps {
   children: (isError: boolean, isLoading: boolean) => ReactNode;
   postId: number;
 }
 
-export type { IPostWrapperProps };
+export type { PostWrapperProps };

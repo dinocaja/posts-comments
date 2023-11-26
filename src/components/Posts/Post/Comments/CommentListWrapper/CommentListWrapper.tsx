@@ -1,12 +1,12 @@
 import withMessageLog from "../../../../../hoc/withMessageLog";
 
 import { useFetchComments } from "./commentListWrapper.hooks";
-import { ICommentListWrapperProps } from "./commentListWrapper.types";
+import { CommentListWrapperProps } from "./commentListWrapper.types";
 
-function CommentListWrapper({ children, postId }: ICommentListWrapperProps) {
+function CommentListWrapper({ children, postId }: CommentListWrapperProps) {
   const { isError, isLoading, data } = useFetchComments(postId);
 
   return <>{children?.(isError, isLoading, data)}</>;
 }
 
-export default withMessageLog<ICommentListWrapperProps>(CommentListWrapper);
+export default withMessageLog<CommentListWrapperProps>(CommentListWrapper);

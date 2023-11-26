@@ -1,10 +1,10 @@
-import { messagePropName } from "../../../constants/appDefaults";
-import removeProps from "../../../helpers/removeProps";
+import { messagePropName } from "../../../constants/appDefaults/messageDefaults";
+import removeProps from "../../../helpers/componentHelpers.ts/removeProps";
 import withMessageLog from "../../../hoc/withMessageLog";
-import { classNames } from "../../../utils/classNames";
+import { classNames } from "../../../utils/styleUtils/classNames";
 
 import { sizes, variants } from "./button.constants";
-import { ButtonSize, ButtonVariant, IButtonProps } from "./button.types";
+import { ButtonSize, ButtonVariant, ButtonProps } from "./button.types";
 
 import styles from "./button.module.css";
 
@@ -14,7 +14,7 @@ function Button({
   variant = ButtonVariant.primary,
   size = ButtonSize.lg,
   ...props
-}: IButtonProps) {
+}: ButtonProps) {
   const variantClassName = variants[variant];
   const sizeClassName = sizes[size];
   const buttonProps = removeProps(props, [messagePropName]);
@@ -35,4 +35,4 @@ function Button({
   );
 }
 
-export default withMessageLog<IButtonProps>(Button);
+export default withMessageLog<ButtonProps>(Button);

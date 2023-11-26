@@ -1,4 +1,4 @@
-interface IComment {
+interface Comment {
   postId: number;
   id: number;
   name: string;
@@ -7,7 +7,7 @@ interface IComment {
 }
 
 type FetchedComments = {
-  [postId: number]: IComment[];
+  [postId: number]: Comment[];
 };
 
-export type { FetchedComments, IComment };
+export type { FetchedComments, Comment };

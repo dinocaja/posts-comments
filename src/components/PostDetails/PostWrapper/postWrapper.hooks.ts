@@ -4,8 +4,8 @@ import { PostsApi } from "../../../constants/endpoints/posts";
 import { UsersApi } from "../../../constants/endpoints/users";
 import { usePostDetailsContext } from "../../../contexts/PostDetailsContext";
 import useFetch from "../../../hooks/useFetch";
-import { IPost } from "../../../types/posts";
-import { IUser } from "../../../types/users";
+import { Post } from "../../../types/posts";
+import { User } from "../../../types/users";
 
 function useFetchPostDetails(postId: number) {
   const { setPostDetails } = usePostDetailsContext();
@@ -13,14 +13,14 @@ function useFetchPostDetails(postId: number) {
     data: postData,
     isLoading: isPostsLoading,
     isError: isPostsError,
-  } = useFetch<IPost>(PostsApi.getPostById(postId));
+  } = useFetch<Post>(PostsApi.getPostById(postId));
 
   const getUserUrl = postData?.id ? UsersApi.getUserById(postData.id) : "";
   const {
     data: userData,
     isLoading: isUsersLoading,
     isError: isUsersError,
-  } = useFetch<IUser>(getUserUrl);
+  } = useFetch<User>(getUserUrl);
 
   useEffect(() => {
     if (postData && userData) {

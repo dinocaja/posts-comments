@@ -18,7 +18,7 @@ function Posts() {
   const wasPostFetched = postDetails?.id === Number(id);
 
   const postAndComments = (
-    <div>
+    <>
       <Post />
       {!comments ? (
         <CommentListWrapper>
@@ -31,7 +31,7 @@ function Posts() {
       ) : (
         <Comments />
       )}
-    </div>
+    </>
   );
 
   return (

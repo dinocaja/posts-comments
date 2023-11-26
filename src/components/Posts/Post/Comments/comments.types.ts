@@ -1,9 +1,9 @@
-import { IComment } from "../../../../types/comments";
-import { IComponent } from "../../../../types/components";
+import { Comment } from "../../../../types/comments";
+import { ComponentProps } from "../../../../types/components";
 
-interface ICommentsProps extends IComponent {
+interface CommentsProps extends ComponentProps {
   postId: number;
-  fetchedComments?: IComment[];
+  fetchedComments?: Comment[];
 }
 
-export type { ICommentsProps };
+export type { CommentsProps };
