@@ -10,5 +10,10 @@ How to run app:
 4. yarn build - build production ready app
 5. yarn preview - run production ready app
 
-run test: yarn test
-run one test: yarn test {path from src}
+How to run tests:
+
+1. yarn test
+
+How to run one tests:
+
+1. yarn test {path from src}
