@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react-hooks";
 import { act } from "react-dom/test-utils";
-import useOutsideAlerter from "../../src/hooks/useOutsideAlerter";
+import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 
 describe("useOutsideAlerter Hook Tests", () => {
   test("calls onClick when clicked outside the ref", () => {

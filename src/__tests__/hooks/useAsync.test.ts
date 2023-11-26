@@ -1,5 +1,5 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import useAsync, { AsyncStatus } from "../../src/hooks/useAsync";
+import useAsync, { AsyncStatus } from "../../hooks/useAsync";
 
 // Mock async function for testing
 const mockAsyncFunction = async () => {

@@ -1,9 +1,9 @@
 import { render, fireEvent } from "@testing-library/react";
-import Button from "../../../src/components/Shared/Button/Button";
+import Button from "../../../components/Shared/Button/Button";
 import {
   ButtonVariant,
   ButtonSize,
-} from "../../../src/components/Shared/Button/button.types";
+} from "../../../components/Shared/Button/button.types";
 import styles from "./button.module.css";
 
 describe("Button Component Tests", () => {

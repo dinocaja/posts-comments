@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
 
-import InputField from "../../../src/components/Shared/Input/Input";
+import InputField from "../../../components/Shared/Input/Input";
 import styles from "./input.module.css";
 
 // Create a spy on console.error before running tests

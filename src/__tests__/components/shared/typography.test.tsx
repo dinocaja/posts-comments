@@ -2,8 +2,8 @@ import { render } from "@testing-library/react";
 import {
   TypographyAlignment,
   TypographyVariant,
-} from "../../../src/components/Shared/Typography/typography.types";
-import Typography from "../../../src/components/Shared/Typography/Typography";
+} from "../../../components/Shared/Typography/typography.types";
+import Typography from "../../../components/Shared/Typography/Typography";
 import styles from "./typography.module.css";
 
 describe("Typography Component Tests", () => {

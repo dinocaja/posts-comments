@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react-hooks";
-import { statusCodes } from "../../src/constants/statusCodes";
-import { AsyncStatus } from "../../src/hooks/useAsync";
-import useFetch from "../../src/hooks/useFetch";
+import { statusCodes } from "../../constants/statusCodes";
+import { AsyncStatus } from "../../hooks/useAsync";
+import useFetch from "../../hooks/useFetch";
 
 const mockGateWay = "https://jsonplaceholder.typicode.com";
 

@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "jest",
-    "test:file": "jest __tests__/",
+    "test:file": "jest src/__tests__/",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
