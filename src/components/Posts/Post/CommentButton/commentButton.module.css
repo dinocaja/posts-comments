@@ -1,3 +1,9 @@
-.commentButton {
+.commentButtonWrapper {
   position: relative;
+}
+
+.commentButton {
+  width: 168px;
+  height: 44px;
+  padding: 0em;
 }

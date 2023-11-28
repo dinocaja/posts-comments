@@ -21,6 +21,10 @@
   gap: 3em;
 }
 
+.buttonLink {
+  text-decoration: none;
+}
+
 .button {
   height: 5em;
   width: 20em;

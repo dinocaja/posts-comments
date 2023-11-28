@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { lazy, memo } from "react";
 import { Link } from "react-router-dom";
 
 import { usePostDetailsContext } from "../../../contexts/PostDetailsContext";
@@ -7,9 +7,10 @@ import withMessageLog from "../../../hoc/withMessageLog";
 import Typography, { TypographyVariant } from "../../Shared/Typography";
 
 import CommentButton from "./CommentButton";
-import Comments from "./Comments";
 import { handlePostClick } from "./post.helpers";
 import { PostProps } from "./post.types";
+
+const Comments = lazy(() => import("./Comments"));
 
 import styles from "./post.module.css";
 

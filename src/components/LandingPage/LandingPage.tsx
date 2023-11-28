@@ -30,7 +30,7 @@ function LandingPage() {
           comments, it's where ideas come to life.
         </Typography>
       </div>
-      <Link to='/posts'>
+      <Link to='/posts' className={styles.buttonLink}>
         <Button className={styles.button}>
           <Typography
             alignment={TypographyAlignment.center}

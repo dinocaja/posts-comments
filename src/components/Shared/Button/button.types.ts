@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 import { ComponentProps } from "../../../types/components";
 
@@ -7,6 +7,7 @@ interface ButtonProps
     ComponentProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  startIcon?: ReactNode;
 }
 
 enum ButtonSize {

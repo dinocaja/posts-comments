@@ -10,7 +10,7 @@ function withMessageLog<P extends ComponentProps>(
   Component: ComponentType<P>,
   overwrittenMessage?: string
 ) {
-  return (props: P) => {
+  const WrappedComponent = (props: P) => {
     const message =
       props[messagePropName as keyof P] ?? overwrittenMessage ?? helloMessage;
 
@@ -18,6 +18,8 @@ function withMessageLog<P extends ComponentProps>(
 
     return <Component {...props} message={message} />;
   };
+  WrappedComponent.displayName = `${Component.name}WithMessageLog`;
+  return WrappedComponent;
 }
 
 export default withMessageLog;

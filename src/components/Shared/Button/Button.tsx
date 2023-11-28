@@ -13,6 +13,7 @@ function Button({
   className = "",
   variant = ButtonVariant.primary,
   size = ButtonSize.lg,
+  startIcon,
   ...props
 }: ButtonProps) {
   const variantClassName = variants[variant];
@@ -30,6 +31,7 @@ function Button({
       )}
       {...buttonProps}
     >
+      {startIcon && <span className={styles.startIcon}>{startIcon}</span>}
       <span>{props.children}</span>
     </button>
   );

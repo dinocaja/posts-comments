@@ -8,6 +8,8 @@ import Typography from "../../../Shared/Typography";
 import { CommentButtonProps } from "./commentButton.types";
 
 import styles from "./commentButton.module.css";
+import { Suspense } from "react";
+import Spinner, { SpinnerSize } from "../../../Shared/Spinner";
 
 function CommentButton({ children, postId }: CommentButtonProps) {
   const { opened, toggle, handleClose } = useToggle();
@@ -16,13 +18,27 @@ function CommentButton({ children, postId }: CommentButtonProps) {
     (fetchedComment) => Number(Object.keys(fetchedComment)[0]) === postId
   )?.[postId];
 
+  const commentButtonProps = {
+    size: ButtonSize.sm,
+    onClick: toggle,
+    className: styles.commentButton,
+    children: <Typography>Comments</Typography>,
+  };
+
   return (
-    <div className={styles.commentButton}>
+    <div className={styles.commentButtonWrapper}>
       <OutsideAlerter onClick={handleClose}>
-        <Button size={ButtonSize.sm} onClick={toggle}>
-          <Typography>Comments</Typography>
-        </Button>
-        {children?.(opened, commentData)}
+        <Suspense
+          fallback={
+            <Button
+              {...commentButtonProps}
+              startIcon={<Spinner size={SpinnerSize.sm} />}
+            />
+          }
+        >
+          <Button {...commentButtonProps} />
+          {children?.(opened, commentData)}
+        </Suspense>
       </OutsideAlerter>
     </div>
   );
