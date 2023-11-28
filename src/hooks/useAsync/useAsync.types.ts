@@ -12,9 +12,9 @@ type AsyncState = {
 };
 
 type AsyncAction =
-  | { type: AsyncStatus.pending }
-  | { type: AsyncStatus.resolved; response: Response }
-  | { type: AsyncStatus.rejected; error: Error };
+  | { status: AsyncStatus.pending }
+  | { status: AsyncStatus.resolved; response: Response }
+  | { status: AsyncStatus.rejected; error: Error };
 
 type UseAsyncResult<T> = {
   setError: (error: unknown) => void;

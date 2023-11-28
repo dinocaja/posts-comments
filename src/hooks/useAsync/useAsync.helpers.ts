@@ -1,7 +1,7 @@
 import { AsyncAction, AsyncState, AsyncStatus } from "./useAsync.types";
 
 function asyncReducer(_: AsyncState, action: AsyncAction): AsyncState {
-  const status = action.type;
+  const status = action.status;
   switch (status) {
     case AsyncStatus.pending: {
       return { status, response: null, error: null };

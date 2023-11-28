@@ -1,4 +1,5 @@
 import { Reducer, useCallback, useReducer } from "react";
+import useSafeDispatch from "../useSafeDispatch";
 
 import { asyncReducer } from "./useAsync.helpers";
 import {
@@ -19,21 +20,18 @@ function useAsync<T>(initialState?: AsyncState): UseAsyncResult<T> {
     }
   );
 
-  const dispatch = useCallback(
-    (action: AsyncAction) => unsafeDispatch(action),
-    [unsafeDispatch]
-  );
+  const dispatch = useSafeDispatch<AsyncAction>(unsafeDispatch);
 
   const { response, error, status } = state;
 
   const run = useCallback(
     async (promise: Promise<T>) => {
-      dispatch({ type: AsyncStatus.pending });
+      dispatch({ status: AsyncStatus.pending });
       try {
         const response = (await promise) as Response;
-        dispatch({ type: AsyncStatus.resolved, response });
+        dispatch({ status: AsyncStatus.resolved, response });
       } catch (error) {
-        dispatch({ type: AsyncStatus.rejected, error: error as Error });
+        dispatch({ status: AsyncStatus.rejected, error: error as Error });
       }
     },
     [dispatch]
@@ -41,7 +39,7 @@ function useAsync<T>(initialState?: AsyncState): UseAsyncResult<T> {
 
   const setError = useCallback(
     (error: unknown) =>
-      dispatch({ type: AsyncStatus.rejected, error: error as Error }),
+      dispatch({ status: AsyncStatus.rejected, error: error as Error }),
     [dispatch]
   );
 
